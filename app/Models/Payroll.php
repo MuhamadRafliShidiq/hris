@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Payroll extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $table = 'payroll';
 
     protected $fillable = [
         'employee_id',

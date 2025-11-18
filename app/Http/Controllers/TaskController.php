@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        if (session('role') === 'Admin HR') {
+        if (session('role') === 'Admin HR' || session('role') === 'Super Admin') {
             $tasks = Task::all();
         } else {
             $tasks = Task::where('assigned_to', session('employee_id'))->get();

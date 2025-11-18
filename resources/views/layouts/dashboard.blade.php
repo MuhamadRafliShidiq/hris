@@ -69,8 +69,8 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-                        <!-- Menu Admin -->
-                        @if(session('role') === 'Admin HR')
+                        <!-- Menu Admin HR & Super Admin -->
+                        @if(session('role') === 'Admin HR' || session('role') === 'Super Admin')
                             <li class="sidebar-item {{ request()->is('dashboard') ? 'active' : '' }}">
                                 <a href="{{ url('/dashboard') }}" class='sidebar-link'>
                                     <i class="bi bi-grid-fill"></i>
@@ -128,8 +128,8 @@
                             </li>
                         @endif
                         
-                        <!-- Menu Developer dan Sales -->
-                        @if(in_array(session('role'), ['Developer', 'Sales']))
+                        <!-- Menu HR Manager dan Employee -->
+                        @if(in_array(session('role'), ['HR Manager', 'Employee']))
                             <li class="sidebar-item {{ request()->is('dashboard') ? 'active' : '' }}">
                                 <a href="{{ url('/dashboard') }}" class='sidebar-link'>
                                     <i class="bi bi-grid-fill"></i>

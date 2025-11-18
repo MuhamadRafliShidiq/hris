@@ -10,7 +10,7 @@ class LeaveRequestController extends Controller
 {
     public function index()
     {
-        if (session ('role') === 'Admin HR') {
+        if (session ('role') === 'Admin HR' || session('role') === 'Super Admin') {
             $employees = Employee::all();
             $leave_requests = LeaveRequest::all();
         } else {

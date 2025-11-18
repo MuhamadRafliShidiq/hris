@@ -10,7 +10,7 @@ class PresenceController extends Controller
 {
     public function index()
     {
-        if (session('role') === 'Admin HR') {
+        if (session('role') === 'Admin HR' || session('role') === 'Super Admin') {
             $presences = Presence::all();
             $employees = Employee::all();
         } else {

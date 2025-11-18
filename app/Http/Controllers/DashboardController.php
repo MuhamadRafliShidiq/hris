@@ -15,11 +15,11 @@ class DashboardController extends Controller
     {
         $employee = Employee::count();
         $department = Department::count();
-        $payroll = Payroll::count();
+        $payrolls = Payroll::count();
         $presence = Presence::count();
         $tasks = Task::all();
 
-        return view('dashboard.index' , compact('employee', 'department', 'payroll', 'presence', 'tasks'));
+        return view('dashboard.index' , compact('employee', 'department', 'payrolls', 'presence', 'tasks'));
     }
 
     public function presence()

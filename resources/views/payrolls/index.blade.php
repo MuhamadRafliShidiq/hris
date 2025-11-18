@@ -27,7 +27,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex">
-                    @if(session('role') === 'Admin HR')
+                    @if(session('role') === 'Admin HR' || session('role') === 'Super Admin')
                         <a href="{{ route('payrolls.create') }}" class="btn btn-primary mb-3 ms-auto">New Payroll</a>
                     @endif
                 </div>
@@ -59,7 +59,7 @@
                             <td>{{ $payroll->pay_date }}</td>
                             <td>
                                 <a href="{{ route('payrolls.show', $payroll->id) }}" class="btn btn-info btn-sm">Salary Slip</a>
-                                @if(session('role') === 'Admin HR')
+                                @if(session('role') === 'Admin HR' || session('role') === 'Super Admin')
                                     <a href="{{ route('payrolls.edit', $payroll->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                     <form action="{{ route('payrolls.destroy', $payroll->id) }}" method="POST" class="d-inline delete-form">
                                         @csrf
